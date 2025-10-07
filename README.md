@@ -1,39 +1,57 @@
-# Livrable_1&2: GridWorld Reinforcement Learning Agents
+# Livrable_1&2 & GW: GridWorld Reinforcement Learning Projects
 
-This project focuses on implementing and comparing several fundamental **Reinforcement Learning (RL) algorithms** to solve a navigation task within a **GridWorld** environment. The goal is for an agent to find the optimal path from the start to the goal state.
+This repository contains two main projects focused on Reinforcement Learning (RL) agents navigating GridWorld environments of increasing complexity.
 
-## 🗺️ GridWorld Environment
+---
 
-The environment, primarily defined in `GridWorldEnvV0.py`, is a basic Markov Decision Process (MDP) designed for RL experimentation. A second version of the environment is implied, likely containing minor adjustments for comparative study.
+## Livrable_1&2: GridWorld Environment V0 and RL Agents
 
-### Environment Details
+This part includes a basic GridWorld environment (`GridWorldEnvV0.py`) and implementations of several classic RL algorithms.
 
-| Feature | Detail |
-| :--- | :--- |
-| **Grid Size** | 5x5 |
-| **Start Position** | (0, 0) - Top-left corner |
-| **Goal Position** | (4, 4) - Bottom-right corner |
-| **Actions** | Up, Down, Left, Right |
-| **Movement Reward** | **-0.5** per step (small penalty to encourage efficiency) |
-| **Goal Reward** | **+50** (terminating reward) |
-| **Boundary Rule** | Agent cannot move outside the grid boundaries. |
+### Environment V0 Details
+| Feature          | Detail                       |
+|------------------|------------------------------|
+| Grid Size        | 5x5                          |
+| Start Position   | (0, 0) - Top-left corner     |
+| Goal Position    | (4, 4) - Bottom-right corner |
+| Actions          | Up, Down, Left, Right        |
+| Movement Reward  | -0.5 per step                |
+| Goal Reward      | +50 (episode terminates)     |
+| Boundary Rule    | Agent cannot move outside grid|
 
-The environment is implemented in **Python** and includes visualization capabilities using **Matplotlib** to show the grid, agent's position, and the goal state.
+### RL Algorithms Implemented:
+- Policy Iteration (`policy_iteration_agent.py`)
+- Value Iteration (`value_iteration_agent.py`)
+- Monte Carlo (`monte_carlo_agent.py`)
+- Q-Learning (`q_learning_agent.py`)
 
-***
+These algorithms were tested mainly on this simple, static environment to understand their behavior and performance.
 
-## 🧠 Reinforcement Learning Algorithms
+---
 
-Various RL techniques, categorized as Dynamic Programming (Model-Based) and Model-Free methods, were implemented to solve the GridWorld.
+## GW: Enhanced GridWorld Environment and Q-Learning Experiments
 
-### Implemented Algorithms
+This is the newer, more complex GridWorld environment (`GridWorldEnv.py`) used in the **GW** project. It supports multiple goals and obstacles, some of which can move dynamically, adding new challenges for RL agents.
 
-| File | Algorithm | Type | Key Characteristic |
-| :--- | :--- | :--- | :--- |
-| `policy_iteration_agent.py` | **Policy Iteration** | Model-Based | Alternates between policy evaluation and policy improvement. **Guaranteed to converge** to optimal policy. |
-| `value_iteration_agent.py` | **Value Iteration** | Model-Based | Iteratively updates the value function using the **Bellman Optimality Equation**. Efficient when transition dynamics are known. |
-| `monte_carlo_agent.py` | **Monte Carlo (MC)** | Model-Free | Learns from **complete episodes** (returns). Uses experience sampling to estimate value functions. |
-| `q_learning_agent.py` | **Q-Learning** | Model-Free (TD) | **Temporal Difference** learning. Learns the optimal action-value function ($Q^*$) directly, independent of the current policy (off-policy). |
+### Key Enhancements in GW Environment
+| Feature            | Detail                                                                 |
+|--------------------|------------------------------------------------------------------------|
+| Multiple Goals     | Supports multiple goal states with configurable initial positions       |
+| Obstacles          | Multiple obstacles that can be static or moving                         |
+| Moving Entities    | Both goals and obstacles can be dynamic, changing positions during episodes |
+| Collision Penalty  | -10 reward for colliding with obstacles; agent stays in place          |
+| Goal Reward        | +30 reward for reaching any goal, ending the episode                   |
+| Step Cost          | -0.1 reward per step to encourage efficient navigation                  |
+| Visualization      | Text-based grid render showing agent (A), goals (G), obstacles (X), and free spaces (.) |
 
-***
+### Q-Learning Experiments in GW
+
+In this project, Q-Learning was the main RL method applied to navigate increasingly complex scenarios:
+- Starting with static obstacles and goals
+- Progressing to multiple goals and obstacles
+- Finally tackling the challenge of **moving obstacles and goals**, which introduce stochastic dynamics and partial observability
+
+Due to the difficulty posed by moving entities, Deep Learning approaches were explored to better approximate the Q-function and improve learning stability and performance.
+
+## 📁 Project Structure
 
