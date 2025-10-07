@@ -1,56 +1,78 @@
-# Livrable_1&2 & GW: GridWorld Reinforcement Learning Projects
-
-This repository contains two main projects focused on Reinforcement Learning (RL) agents navigating GridWorld environments of increasing complexity.
+# GridWorld Homework - Approach Descriptions
 
 ---
 
-## Livrable_1&2: GridWorld Environment V0 and RL Agents
+## Test 1: Static Obstacles with Q-Learning
 
-This part includes a basic GridWorld environment (`GridWorldEnvV0.py`) and implementations of several classic RL algorithms.
+**Approach:**  
+The agent was trained in environments with static obstacles and a fixed goal location across various grid sizes (4x4, 6x6, 8x8, 10x10). The obstacles remain stationary, allowing the agent to learn reliable paths around them.
 
-### Environment V0 Details
-| Feature          | Detail                       |
-|------------------|------------------------------|
-| Grid Size        | 5x5                          |
-| Start Position   | (0, 0) - Top-left corner     |
-| Goal Position    | (4, 4) - Bottom-right corner |
-| Actions          | Up, Down, Left, Right        |
-| Movement Reward  | -0.5 per step                |
-| Goal Reward      | +50 (episode terminates)     |
-| Boundary Rule    | Agent cannot move outside grid|
+**What’s new:**  
+- Baseline use of Q-learning in static environments with multiple fixed obstacles.  
+- Evaluation of agent performance as grid size increases.
 
-### RL Algorithms Implemented:
-- Policy Iteration (`policy_iteration_agent.py`)
-- Value Iteration (`value_iteration_agent.py`)
-- Monte Carlo (`monte_carlo_agent.py`)
-- Q-Learning (`q_learning_agent.py`)
+**Purpose:**  
+To validate the Q-learning agent’s ability to solve static GridWorld environments and establish a baseline for future experiments.
 
-These algorithms were tested mainly on this simple, static environment to understand their behavior and performance.
+**Results:**  
+- Agent successfully learned to navigate to the goal while avoiding obstacles.  
+- Q-tables and learning curves showed steady improvement over episodes.  
+- Animated simulations confirmed effective navigation policies.
 
 ---
 
-## GW: Enhanced GridWorld Environment and Q-Learning Experiments
+## Test 2: Moving Obstacles with Q-Learning
 
-This is the newer, more complex GridWorld environment (`GridWorldEnv.py`) used in the **GW** project. It supports multiple goals and obstacles, some of which can move dynamically, adding new challenges for RL agents.
+**Approach:**  
+This test introduced moving obstacles while keeping the goal static. Obstacles change positions dynamically at each step, adding stochasticity to the environment.
 
-### Key Enhancements in GW Environment
-| Feature            | Detail                                                                 |
-|--------------------|------------------------------------------------------------------------|
-| Multiple Goals     | Supports multiple goal states with configurable initial positions       |
-| Obstacles          | Multiple obstacles that can be static or moving                         |
-| Moving Entities    | Both goals and obstacles can be dynamic, changing positions during episodes |
-| Collision Penalty  | -10 reward for colliding with obstacles; agent stays in place          |
-| Goal Reward        | +30 reward for reaching any goal, ending the episode                   |
-| Step Cost          | -0.1 reward per step to encourage efficient navigation                  |
-| Visualization      | Text-based grid render showing agent (A), goals (G), obstacles (X), and free spaces (.) |
+**What’s new:**  
+- Agent faced the challenge of navigating in a non-stationary environment.  
+- Tested whether Q-learning can adapt to dynamic changes in obstacles.
 
-### Q-Learning Experiments in GW
+**Purpose:**  
+To assess robustness of the Q-learning policy when obstacles are not fixed and require dynamic avoidance strategies.
 
-In this project, Q-Learning was the main RL method applied to navigate increasingly complex scenarios:
-- Starting with static obstacles and goals
-- Progressing to multiple goals and obstacles
-- Finally tackling the challenge of **moving obstacles and goals**, which introduce stochastic dynamics and partial observability
+**Results:**  
+- Agent showed learning but with slower convergence compared to static obstacle scenario.  
+- Q-table updates reflected adjustments to the moving obstacles.  
+- Visualizations showed the agent learning to avoid dynamic obstacles effectively.
 
-Due to the difficulty posed by moving entities, Deep Learning approaches were explored to better approximate the Q-function and improve learning stability and performance.
+---
 
+## Test 3: Moving Goal with Static Obstacles (No Effective Learning)
 
+**Approach:**  
+The agent was placed in an environment with one static obstacle but a **moving goal** that changes position dynamically every episode or step.
+
+**What’s new:**  
+- Introduced a goal that moves, requiring the agent to continuously track and adapt to changing target locations.
+
+**Purpose:**  
+To challenge the agent’s ability to track and reach a moving goal instead of a fixed one.
+
+**Results:**  
+- The agent failed to learn meaningful policies in this setup.  
+- Rewards and Q-values showed no significant improvement over time.  
+- The moving goal’s unpredictability appeared too complex for standard Q-learning without additional strategies.
+
+---
+
+## Test 4: Distance-Aware Reward Shaping with Moving Goal (No Effective Learning)
+
+**Approach:**  
+An enhanced training method that incorporated a sophisticated distance-based reward signal (combining Manhattan and Euclidean distances) to better guide the agent towards the moving goal.
+
+**What’s new:**  
+- Reward shaping aimed to provide incremental feedback to improve learning.  
+- Tested multiple configurations to tune reward weights and penalties.
+
+**Purpose:**  
+To improve learning in moving goal scenarios by offering more informative rewards rather than sparse terminal feedback.
+
+**Results:**  
+- Despite the advanced reward shaping, the agent still did not learn effective policies.  
+- Moving goal complexity remained a major challenge.  
+- Training curves showed limited improvement; agent struggled to converge.
+
+---
