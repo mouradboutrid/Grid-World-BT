@@ -53,5 +53,4 @@ In this project, Q-Learning was the main RL method applied to navigate increasin
 
 Due to the difficulty posed by moving entities, Deep Learning approaches were explored to better approximate the Q-function and improve learning stability and performance.
 
-## 📁 Project Structure
 
