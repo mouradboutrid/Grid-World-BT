@@ -1,4 +1,4 @@
-# GridWorld Homework - Approach Descriptions
+# Approach Descriptions
 
 ---
 
