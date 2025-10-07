@@ -1,4 +1,4 @@
-# Approach Descriptions
+# GridWorld Homework - Approach Descriptions
 
 ---
 
@@ -40,39 +40,40 @@ To assess robustness of the Q-learning policy when obstacles are not fixed and r
 
 ---
 
-## Test 3: Moving Goal with Static Obstacles (No Effective Learning)
+## Test 3: Moving Goal with Static Obstacles (No Goal Position Info, No Effective Learning)
 
 **Approach:**  
-The agent was placed in an environment with one static obstacle but a **moving goal** that changes position dynamically every episode or step.
+The agent was placed in an environment with one static obstacle and a **moving goal**, but crucially **without providing the agent with any direct information about the goal’s position**.
 
 **What’s new:**  
-- Introduced a goal that moves, requiring the agent to continuously track and adapt to changing target locations.
+- Introduced a moving goal with unknown location to the agent, increasing the task complexity significantly.
 
 **Purpose:**  
-To challenge the agent’s ability to track and reach a moving goal instead of a fixed one.
+To test the agent’s ability to learn in a scenario where the goal moves unpredictably and the agent has no prior knowledge of its current location.
 
 **Results:**  
-- The agent failed to learn meaningful policies in this setup.  
-- Rewards and Q-values showed no significant improvement over time.  
-- The moving goal’s unpredictability appeared too complex for standard Q-learning without additional strategies.
+- The agent failed to learn meaningful policies.  
+- Rewards and Q-values showed no significant improvement.  
 
 ---
 
-## Test 4: Distance-Aware Reward Shaping with Moving Goal (No Effective Learning)
+## Test 4: Distance-Aware Reward Shaping with Moving Goal (With Goal Position Info)
 
 **Approach:**  
-An enhanced training method that incorporated a sophisticated distance-based reward signal (combining Manhattan and Euclidean distances) to better guide the agent towards the moving goal.
+An enhanced training method incorporated a distance-based reward signal combining Manhattan and Euclidean distances to guide the agent towards the moving goal. However, in this setup, the agent **was given information about the current goal position**, effectively “cheating” by relying on this explicit data for the reward calculations, bypassing the need for the agent to learn or explore the environment.
 
 **What’s new:**  
-- Reward shaping aimed to provide incremental feedback to improve learning.  
-- Tested multiple configurations to tune reward weights and penalties.
+- Reward shaping was used to provide immediate, incremental feedback, offering more detailed guidance than the sparse terminal rewards.  
+- The agent exploited the goal position info to compute distance-based progress rewards, essentially manipulating the reward structure to maximize efficiency without learning generalizable strategies.  
+- Multiple configurations of reward weights and penalties were tested to fine-tune the reward shaping, but the overall goal was to artificially enhance the agent's performance without encouraging actual learning.
 
 **Purpose:**  
-To improve learning in moving goal scenarios by offering more informative rewards rather than sparse terminal feedback.
+The aim was not to promote true learning but to artificially guide the agent's behavior by giving it explicit goal information, allowing it to "cheat" its way through the task by focusing on short-term progress towards the goal.
 
 **Results:**  
-- Despite the advanced reward shaping, the agent still did not learn effective policies.  
-- Moving goal complexity remained a major challenge.  
-- Training curves showed limited improvement; agent struggled to converge.
+- The agent showed some **apparent improvement** in performance, but this was more of an exploitation of the provided goal information than genuine learning.  
+- Training curves were better than naive methods without reward shaping, but they still represented **mechanical exploitation of reward signals**, rather than the agent truly learning how to achieve the goal.  
+- Despite the addition of goal position information, performance remained **unstable and limited**, suggesting that the agent’s reliance on explicit goal knowledge prevented the development of more robust, generalizable strategies.
+
 
 ---
