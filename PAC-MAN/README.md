@@ -45,6 +45,3 @@ python pacman.py -p ApproximateQAgent -a extractor=EnhancedExtractor -n 20 -l me
 And to compare with the original feature extractor:
 ```bash
 python pacman.py -p ApproximateQAgent -a extractor=SimpleExtractor -n 20 -l mediumGrid
-
-
-
