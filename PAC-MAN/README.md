@@ -13,6 +13,8 @@ My goal is to implement and experiment with AI techniques like reinforcement lea
 
 ## My Enhanced Feature Extractor
 
+The original feature extractor I started with is in the folder named `reinforcement`. I created a modified version in a folder called `MY-FT-RL`.
+
 I extended the original feature extractor (`SimpleExtractor`) with an `EnhancedExtractor` that adds new features to improve Pacman’s decision-making:
 
 ### Features I Added
