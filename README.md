@@ -66,3 +66,14 @@ This project provides a framework for building AI agents that play the classic P
 The goal is to implement and experiment with AI techniques like reinforcement learning, search, and feature engineering to create intelligent Pacman agents.
 
 
+# GridWorld-RL-Experiments
+
+This project builds on the same GridWorld environment developed earlier, using it as the base for new reinforcement learning experiments.  
+The goal is to explore **Deep Reinforcement Learning (DRL)** methods, focusing on both **naive deep learning approaches** and the **DeepMind-style Deep Q-Learning (DQN)** implementation.
+
+The original GridWorld structure remains unchanged.  
+A separate wrapper class was added only to make it compatible with **Stable-Baselines3 (SB3)**, allowing direct comparison between custom deep RL agents and SB3 implementations such as DQN and PPO.
+
+The experiments train agents in dynamic environments with moving goals and obstacles, evaluating how different deep learning strategies handle complexity, adaptability, and learning stability.
+
+
