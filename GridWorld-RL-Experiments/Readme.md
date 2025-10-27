@@ -1,6 +1,6 @@
 # GridWorld Reinforcement Learning Experiments
 
-This repository contains a collection of **Reinforcement Learning (RL)** experiments implemented on a **custom dynamic GridWorld environment**.  
+This File contains a collection of **Reinforcement Learning (RL)** experiments implemented on a **custom dynamic GridWorld environment**.  
 It includes implementations of **Q-learning**, **Deep Q-Learning (DQN)**, **naïve deep agents**, and **Stable-Baselines3 (SB3)** integration for benchmark comparisons.
 
 ---
