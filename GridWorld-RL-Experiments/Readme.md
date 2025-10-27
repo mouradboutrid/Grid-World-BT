@@ -25,7 +25,7 @@ It includes implementations of **Q-learning**, **Deep Q-Learning (DQN)**, **naï
 
 - Deep reiforcement learning behaviere in a Dynamic **GridWorld** with moving obstacles and goals  
 - Supports both **manual agents** and **Stable-Baselines3** agents  
-- Modular environment compatible with Gym API    
+- Modular environment compatible with gymnasium
 - Performance comparison 
 
 ---
