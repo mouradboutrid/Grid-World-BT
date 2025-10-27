@@ -1,6 +1,6 @@
-# Livrable_1&2 & GW: GridWorld Reinforcement Learning Projects
+# Livrable_1&2 & GW & Pacman AI Project & GridWorld-RL-Experiments : Reinforcement Learning Projects
 
-This repository contains two main projects focused on Reinforcement Learning (RL) agents navigating GridWorld environments of increasing complexity.
+This repository contains fou main projects focused on Reinforcement Learning (RL) agents navigating environments with increasing complexity.
 
 ---
 
