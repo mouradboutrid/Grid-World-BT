@@ -118,12 +118,5 @@ This repository contains experiments with **Reinforcement Learning (RL)** and **
 - Reuse of hyperparameters from classical benchmarks to accelerate DRL training.
 - Modular structure allows swapping algorithms easily and testing new RL methods.
 
-### Future Directions
-- Test additional algorithms using the same environment wrapper.
-- Experiment with **multi-agent scenarios** in GridWorld.
-- Incorporate advanced exploration strategies and reward shaping to improve learning in moving goal scenarios.
-
----
-
 ---
 
