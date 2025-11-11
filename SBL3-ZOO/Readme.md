@@ -49,8 +49,9 @@ Agents were trained in **phases**, gradually increasing environment complexity:
 
 - Successfully trained **PPO, DQN, and A2C agents** in both static and dynamic GridWorld environments.  
 - Demonstrated the effect **hyperparameters from classical benchmarks** to costum environments.  
-- Built a modular framework for testing different algorithms in custom environments.  
+- vesualise the result and training progress using TensorBoard
 
 
 ---
+
 
