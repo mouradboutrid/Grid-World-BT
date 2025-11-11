@@ -81,12 +81,21 @@ The experiments train agents in dynamic environments with moving goals and obsta
 
 This repository contains experiments with **Reinforcement Learning (RL)** and **Deep Reinforcement Learning (DRL)** in custom GridWorld environments, building upon previous projects like Livrable_1&2, GW, and Pacman AI.
 
-The custom GridWorld environment is flexible and supports configurable grid sizes, multiple goals and obstacles, and dynamic/moving goals and obstacles. It also includes step costs, collision penalties, and goal rewards. A text-based visualization shows the agent (A), goals (G), and obstacles (X).
+The custom GridWorld environment is highly flexible, supporting configurable grid sizes, multiple goals and obstacles, and dynamic/moving entities. It includes step costs, collision penalties, and goal rewards to encourage efficient navigation. A text-based visualization displays the agent (A), goals (G), and obstacles (X) for clear step-by-step tracking.
 
-A wrapper (`make_sb3_env`) was created to make the custom GridWorld compatible with **Stable-Baselines3 (SB3)**. Agents can be trained using standard SB3 algorithms such as **PPO** (Proximal Policy Optimization), **DQN** (Deep Q-Learning), and **A2C** (Advantage Actor-Critic). Training logs can be visualized using **TensorBoard**.
+A wrapper (`make_sb3_env`) was implemented to make the environment compatible with **Stable-Baselines3 (SB3)**. This allows direct use of state-of-the-art DRL algorithms, including **PPO** (Proximal Policy Optimization), **DQN** (Deep Q-Learning), and **A2C** (Advantage Actor-Critic). Training progress and performance can be monitored using **TensorBoard**.
 
-Default hyperparameters from `FrozenLake-v1` were extracted for PPO and DQN. These parameters were used to initialize GridWorld DRL agents to leverage proven settings and improve training stability and performance.
+Default hyperparameters from `FrozenLake-v1` were extracted for PPO and DQN and adapted for the GridWorld environment. This approach leverages proven settings to improve training stability and accelerate learning.
 
-Agents were trained in environments with static goals and obstacles, as well as moving goals and obstacles. The **GridWorldAnimator** class was used to animate agent behavior, showing how learned policies navigate the environment step by step. The experiments successfully trained PPO, DQN, and A2C agents in dynamic GridWorlds. Hyperparameters from classical benchmarks were reused to accelerate DRL training, and the modular structure allows swapping algorithms easily and testing new RL methods.
+Agents were trained under various scenarios, including static goals and obstacles as well as moving goals and obstacles. The **GridWorldAnimator** class provides a visual demonstration of agent behavior, showing how policies learned by the models navigate complex environments.
 
+### Summary of Experiments
+
+| Agent | Algorithm | Environment Type         | Key Features                                  | Visualization |
+|-------|-----------|-------------------------|-----------------------------------------------|---------------|
+| Agent 1 | PPO       | Static & Moving GridWorld | Optimized with FrozenLake hyperparameters    | GridWorldAnimator |
+| Agent 2 | DQN       | Static & Moving GridWorld | Deep Q-Learning with replay buffer           | GridWorldAnimator |
+| Agent 3 | A2C       | Static & Moving GridWorld | Actor-Critic with advantage estimation       | GridWorldAnimator |
+
+The repository demonstrates successful training of multiple DRL agents in dynamic GridWorld environments, reusing classical benchmark parameters, enabling modular experimentation, and providing animated evaluation of agent behaviors. The structure supports easy addition of new algorithms, environments, and evaluation metrics for further RL research.
 
