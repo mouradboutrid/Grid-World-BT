@@ -45,13 +45,6 @@ Agents were trained in **phases**, gradually increasing environment complexity:
 
 ---
 
-## Visualization
-
-The **GridWorldAnimator** class provided a clear, step-wise visualization of agent behavior:
-- Differences between PPO, DQN, and A2C could be observed in terms of path efficiency and reaction to dynamic elements.
-
----
-
 ## Achievements
 
 - Successfully trained **PPO, DQN, and A2C agents** in both static and dynamic GridWorld environments.  
@@ -60,3 +53,4 @@ The **GridWorldAnimator** class provided a clear, step-wise visualization of age
 
 
 ---
+
