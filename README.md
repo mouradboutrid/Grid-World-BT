@@ -101,10 +101,10 @@ Stable-Baselines3 Zoo provides a standardized framework for training, evaluating
 
 In this repository, SB3 Zoo is used to:
 
-1. Train agents in both static and dynamic GridWorlds.
-2. Apply consistent evaluation procedures across multiple algorithms.
-3. Visualize agent behavior during training and after convergence.
-4. Manage experiment reproducibility with consistent configurations and seeds.
+Train agents in both static and dynamic GridWorlds.
+Apply consistent evaluation procedures across multiple algorithms.
+Visualize agent behavior during training and after convergence.
+Manage experiment reproducibility with consistent configurations and seeds.
 
 ### Summary of Experiments
 
