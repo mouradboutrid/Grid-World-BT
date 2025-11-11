@@ -97,5 +97,5 @@ Agents were trained under various scenarios, including static goals and obstacle
 | Agent 2 | DQN       | Static & Moving GridWorld | Deep Q-Learning with replay buffer           | GridWorldAnimator |
 | Agent 3 | A2C       | Static & Moving GridWorld | Actor-Critic with advantage estimation       | GridWorldAnimator |
 
-The repository demonstrates successful training of multiple DRL agents in dynamic GridWorld environments, reusing classical benchmark parameters, enabling modular experimentation, and providing animated evaluation of agent behaviors. The structure supports easy addition of new algorithms, environments, and evaluation metrics for further RL research.
+The repository demonstrates successful training of multiple DRL agents in dynamic GridWorld environments, reusing classical benchmark parameters, enabling modular experimentation, and providing animated evaluation of agent behaviors. The structure supports easy addition of new algorithms, environments, and evaluation metrics for further RL study.
 
