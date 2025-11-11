@@ -6,7 +6,7 @@ This repository contains fou main projects focused on Reinforcement Learning (RL
 
 ## Livrable_1&2: GridWorld Environment V0 and RL Agents
 
-This part includes a basic GridWorld environment (`GridWorldEnvV0.py`) and implementations of several classic RL algorithms.
+This part includes a basic GridWorld environment (`GridWorldEnvV0.py`) and implementations of several classic RL algos.
 
 ### Environment V0 Details
 | Feature          | Detail                       |
