@@ -79,15 +79,32 @@ The experiments train agents in dynamic environments with moving goals and obsta
 
 # SBL3-ZOO
 
-This repository contains experiments with **Reinforcement Learning (RL)** and **Deep Reinforcement Learning (DRL)** in custom GridWorld environments, building upon previous projects like Livrable_1&2, GW, and Pacman AI.
+This repository continue the experiments with **Reinforcement Learning (RL)** and **Deep Reinforcement Learning (DRL)** in the custom GridWorld environments, building upon previous project Q-Learning Experiments in GW.
 
-The custom GridWorld environment is highly flexible, supporting configurable grid sizes, multiple goals and obstacles, and dynamic/moving entities. It includes step costs, collision penalties, and goal rewards to encourage efficient navigation. A text-based visualization displays the agent (A), goals (G), and obstacles (X) for clear step-by-step tracking.
+The custom GridWorld environment is highly flexible, supporting configurable grid sizes, multiple goals and obstacles, and dynamic/moving entities. It includes step costs, collision penalties, and goal rewards to encourage efficient navigation. 
 
 A wrapper (`make_sb3_env`) was implemented to make the environment compatible with **Stable-Baselines3 (SB3)**. This allows direct use of state-of-the-art DRL algorithms, including **PPO** (Proximal Policy Optimization), **DQN** (Deep Q-Learning), and **A2C** (Advantage Actor-Critic). Training progress and performance can be monitored using **TensorBoard**.
 
-Default hyperparameters from `FrozenLake-v1` were extracted for PPO and DQN and adapted for the GridWorld environment. This approach leverages proven settings to improve training stability and accelerate learning.
+Default hyperparameters from `FrozenLake-v1` were extracted for PPO and DQN and adapted for the GridWorld environment. This approach has proven settings to improve training stability and accelerate learning.
 
-Agents were trained under various scenarios, including static goals and obstacles as well as moving goals and obstacles. The **GridWorldAnimator** class provides a visual demonstration of agent behavior, showing how policies learned by the models navigate complex environments.
+Agents were trained under various scenarios, including static goals and obstacles as well as moving goals and obstacles.
+
+## Using Stable-Baselines3 Zoo
+
+Stable-Baselines3 Zoo provides a standardized framework for training, evaluating, and visualizing DRL agents. It simplifies experimentation by offering:
+
+- Predefined training scripts and configurations for multiple algorithms (PPO, DQN, A2C, etc.).
+- Easy environment integration through wrappers like `make_sb3_env`.
+- Automated logging to TensorBoard for monitoring rewards, losses, and other metrics.
+- Built-in utilities for saving and loading models, evaluating performance, and generating rollout videos.
+- Hyperparameter tuning examples to adapt base algorithms to custom environments efficiently.
+
+In this repository, SB3 Zoo is used to:
+
+1. Train agents in both static and dynamic GridWorlds.
+2. Apply consistent evaluation procedures across multiple algorithms.
+3. Visualize agent behavior during training and after convergence.
+4. Manage experiment reproducibility with consistent configurations and seeds.
 
 ### Summary of Experiments
 
@@ -97,5 +114,6 @@ Agents were trained under various scenarios, including static goals and obstacle
 | Agent 2 | DQN       | Static & Moving GridWorld | Deep Q-Learning with replay buffer           | GridWorldAnimator |
 | Agent 3 | A2C       | Static & Moving GridWorld | Actor-Critic with advantage estimation       | GridWorldAnimator |
 
-The repository demonstrates successful training of multiple DRL agents in dynamic GridWorld environments, reusing classical benchmark parameters, enabling modular experimentation, and providing animated evaluation of agent behaviors. The structure supports easy addition of new algorithms, environments, and evaluation metrics for further RL study.
+The repository demonstrates the training of multiple DRL agents in dynamic GridWorld environments. With a structure supports easy addition of new algorithms, environments, and evaluation metrics for further RL study.
+
 
